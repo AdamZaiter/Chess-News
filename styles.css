@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css?family=Allura|Josefin+Sans');
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	outline: none;
+	list-style: none;
+	text-decoration: none;
+	font-family: 'Josefin Sans', sans-serif;
+	max-width: 100%;
+}
+
+p{
+	margin-bottom: 15px;
+	font-size: 14px;
+	line-height: 20px;
+	color: #a9a9a9;
+}
+
+body {
+	background-color: beige;
+}
+
+/* .main_container{
+	position: relative;
+} */
+
+/* Navigation Bar */
+.navbar {
+	width: 100vw;
+	height: 60px;
+	position: absolute;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background: #444444;
+}
+
+.logo a{
+	padding-left: 2rem;
+	font-family: 'Georgia', cursive;
+	font-size: 3rem;
+	color: #fafafa;
+}
+
+.navbar_items ul{
+	display: flex;
+	padding-right: 2rem;
+}
+
+.navbar_items ul li{
+	margin: 0 10px;
+}
+
+.navbar_items ul li a{
+	text-transform: uppercase;
+	color: #fff;
+}
+
+/* banner_image */
+.banner_image{
+	background: url('images/background.jpeg');
+	background-position: 0px 60px;
+	background-size: cover;
+	width: 100vw;
+	height: 600px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* footer */
+.footer {
+	width: 100vw;
+	text-align: center;
+	background: #444444;
+	padding: 20px 0;
+}
+.footer a {
+	color: #000000;
+}
+.article-w-image {
+	margin-bottom: 5%;
+	display: flex;
+	flex-direction: row-reverse;
+}
+
+#signup h1 {
+	font-size: 3rem;
+	text-align: center;
+	margin: 2% 3%;
+    color: #000000;
+}
+
+#form {
+    display: flex;
+    flex-direction:column;
+	position: relative;
+	justify-content: center;
+}
+
+#form > div {
+    padding: 3rem;
+}
+
+#form > div:first-child {
+    flex-basis: 40%;
+    flex-grow: 1;
+}
+
+#form > div:last-child {
+    flex-basis: 60%;
+    flex-grow: 1;
+}
+
+label {
+	margin-bottom: 3%;
+	display: block;
+	text-align: center;
+    color: #000000;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 0.8rem;
+}
+
+form > div {
+    margin-bottom: 1rem;
+}
+
+input[type="email"], input[type="text"], input[type="password"] {
+    font-size: 1rem;
+    width: 100%;
+    padding: 1rem;
+}
+
+input[type="checkbox"], input[type="radio"] {
+    font-size: 1rem;
+}
+
+form span, form a {
+    color: #000000;
+}
+
+.brown {
+ 	background-image: linear-gradient(to top, #ea9e0f, #a95601);
+}
+
+#services {
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
+
+#services article {
+  display: flex;
+  flex-direction: row;
+}
+
+#services article:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.img-home-articles {
+	background-image: url(https://images.unsplash.com/photo-1536743939714-23ec5ac2dbae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80);
+}
+
+.img-home-game {
+	background-image: url(https://images.chesscomfiles.com/uploads/v1/article/22594.7a2c2908.668x375o.77c7f8236274@2x.jpeg);
+}
+
+#services article div {
+	flex-basis: 50%;
+	flex-grow: 1;
+	background-size: cover;
+	background-position: top;
+	padding: 3rem;
+	color: #fff;    
+}
+	
+.button {
+	display: inline-block;
+	text-transform: uppercase;
+	font-weight: 800;
+	letter-spacing: 0.05rem;
+	background: #fff;
+	color: #000;
+	padding: 0.8rem 3rem;
+	border-radius: 3rem;
+	box-shadow: 0 2px 15px 1px rgba(0,0,0,.5);
+	text-align: center;
+	font-size: 0.9rem;
+	transition: box-shadow 0.3s;
+	cursor: pointer;
+	border: 0;
+}
+
+.button:hover {
+	box-shadow: 0 3px 18px 2px rgba(0,0,0,.7);
+}
+
+article .button {
+	margin-top: 3rem;
+}
+
+h2 {
+	text-align: left;
+	font-size: 1.5rem;
+	font-weight: 800;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	margin: 0;
+	color: #000000;
+}
+
+article h2 {
+	margin-bottom: 3rem;
+}
+
+@media (max-width: 680px) {
+
+	#services {
+		margin: 0;
+	}
+
+	.banner_image{
+		background: url(https://images.chesscomfiles.com/uploads/v1/article/25126.7ba343a5.1200x674o.34772f7f578c.jpeg);
+	}
+
+	.img-home-articles {
+		background-image: url();
+	}
+
+	.img-home-game {
+		background-image: url();
+	}
+
+	#services article {
+		flex-direction: column !important;
+	}
+
+	#services article div:first-child {
+		height: 400px;
+	}    
+
+	.navbar{
+		height: auto;
+		flex-direction: column;
+	}
+
+	.logo{
+		margin-bottom: 0px;
+	}
+
+	.navbar_items ul{
+		flex-direction: column;
+		text-align: center;
+	}
+
+	.navbar_items ul li{
+		margin-bottom:5px;
+	}
+}
