@@ -22,10 +22,13 @@ body {
 	background-color: beige;
 }
 
-/* .main_container{
-	position: relative;
-} */
-
+.site-info {
+	background: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 2rem;
+	margin-left: 2.5%;
+}
+  
 /* Navigation Bar */
 .navbar {
 	width: 100vw;
@@ -66,7 +69,7 @@ body {
 	width: 100vw;
 	height: 600px;
 	display: flex;
-	justify-content: center;
+	justify-content: left;
 	align-items: center;
 }
 
@@ -217,6 +220,9 @@ article h2 {
 }
 
 @media (max-width: 680px) {
+	.site-info h1 {
+		font-size: 1.5rem;
+	}
 
 	#services {
 		margin: 0;
