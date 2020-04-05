@@ -218,10 +218,48 @@ h2 {
 article h2 {
 	margin-bottom: 3rem;
 }
+@media (min-width: 681px) {
+	.big-screen {
+		display: block;
+	}
 
+	.small-screen {
+		display: none;
+	}
+
+	.logo-small {
+		display: none;
+	}
+}
 @media (max-width: 680px) {
+	.big-screen {
+		display: none;
+	}
+
+
+
+	.small-screen {
+		display: block;
+	}
+
+	.site-info {
+		display: flex;
+		align-items: center;
+		justify-content: left;
+	}
+
 	.site-info h1 {
 		font-size: 1.5rem;
+	}
+	.logo-small {
+		width: 70%;
+		position: absolute;
+		font-size: 3rem;
+		padding-left: 5px; 
+		color: #000000;
+		display: block;
+		top: 1rem;
+		
 	}
 
 	#services {
@@ -247,22 +285,96 @@ article h2 {
 	#services article div:first-child {
 		height: 400px;
 	}    
+}
 
-	.navbar{
-		height: auto;
-		flex-direction: column;
-	}
+#hamburger {  
+  width: 60px;
+  height: 45px;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;   
+  z-index: 99;
+  cursor: pointer;  
+  transform: scale(0.8);    
+}
 
-	.logo{
-		margin-bottom: 0px;
-	}
+#hamburger span {
+   display: block;
+   position: absolute; 
+   height: 9px;
+   width: 100%;
+   background: #000000;
+   border-radius: 9px;
+   left: 0;
+   transform: rotate(0deg); 
+   transition: .25s ease-in-out;    
+}
 
-	.navbar_items ul{
-		flex-direction: column;
-		text-align: center;
-	}
+#hamburger span:nth-child(1) {
+    top: 0;
+}
 
-	.navbar_items ul li{
-		margin-bottom:5px;
-	}
+#hamburger span:nth-child(2),
+#hamburger span:nth-child(3) {
+    top: 18px;
+}
+
+#hamburger span:nth-child(4) {
+    top: 36px;
+}
+
+#hamburger.open span:nth-child(1),
+#hamburger.open span:nth-child(4) {
+    width: 0%;
+    top: 18px;
+    left: 50%;
+}
+
+#hamburger.open span:nth-child(2) {
+    transform: rotate(45deg);
+}
+
+#hamburger.open span:nth-child(3) {
+    transform: rotate(-45deg);
+}
+
+nav {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 50;
+    background: rgba(0,0,0,0.9);
+    user-select: none;
+    display: none;
+}
+
+nav.show {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+
+nav li {
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: #fff;
+    margin-bottom: 1.2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: #bbb;
+}
+
+nav a:hover {
+    color: #fff;
 }
