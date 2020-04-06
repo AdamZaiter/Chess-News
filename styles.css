@@ -42,12 +42,6 @@ body {
 	background: #444444;
 }
 
-.logo a{
-	padding-left: 2rem;
-	font-family: 'Georgia', cursive;
-	font-size: 3rem;
-	color: #fafafa;
-}
 
 .navbar_items ul{
 	display: flex;
@@ -62,6 +56,35 @@ body {
 	text-transform: uppercase;
 	color: #fff;
 }
+
+/* site info and logo */
+.site-info {
+	background: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 2rem;
+	margin-left: 2.5%;
+}
+
+.logo a{
+	padding-left: 2rem;
+	font-family: 'Georgia', cursive;
+	font-size: 3rem;
+	color: #fafafa;
+}
+
+
+/* banner-image desktop */
+.banner-image{
+	background: url('images/background.jpeg');
+	background-position: 0px 60px;
+	background-size: cover;
+	width: 100vw;
+	height: 600px;
+	display: flex;
+	justify-content: left;
+	align-items: center;
+}
+
 
 /* hamburger menu for mobile */
 #hamburger {  
@@ -115,6 +138,8 @@ body {
     transform: rotate(-45deg);
 }
 
+
+/* hamburger open nav */
 nav {
     position: absolute;
     width: 100%;
@@ -156,26 +181,8 @@ nav a {
 nav a:hover {
     color: #fff;
 }
-.site-info {
-	background: rgba(0, 0, 0, 0.5);
-	color: #fff;
-	padding: 2rem;
-	margin-left: 2.5%;
-}
+
   
-/* banner-image desktop */
-.banner-image{
-	background: url('images/background.jpeg');
-	background-position: 0px 60px;
-	background-size: cover;
-	width: 100vw;
-	height: 600px;
-	display: flex;
-	justify-content: left;
-	align-items: center;
-}
-
-
 /* services section */
 #services {
 	margin-top: 5%;
@@ -186,7 +193,6 @@ nav a:hover {
   display: flex;
   flex-direction: row;
 }
-
 
 #services article div {
 	flex-basis: 50%;
@@ -328,8 +334,7 @@ form span, form a {
 	}
 }
 @media (max-width: 786px) {
-
-    /* Changes to mobile banner-image */
+    /* Changes to mobile banner-image, logo and info */
 	.big-screen {
 		display: none;
 	}
@@ -374,7 +379,6 @@ form span, form a {
 
 
     /* adjusting services layout for mobile */
-
 	#services {
 		margin: 0;
 	}
