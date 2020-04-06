@@ -11,6 +11,16 @@
 	max-width: 100%;
 }
 
+h2 {
+	text-align: left;
+	font-size: 1.5rem;
+	font-weight: 800;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	margin: 0;
+	color: #000000;
+}
+
 p{
 	margin-bottom: 15px;
 	font-size: 14px;
@@ -22,21 +32,13 @@ body {
 	background-color: beige;
 }
 
-.site-info {
-	background: rgba(0, 0, 0, 0.5);
-	color: #fff;
-	padding: 2rem;
-	margin-left: 2.5%;
-}
-  
 /* Navigation Bar */
 .navbar {
 	width: 100vw;
 	height: 60px;
 	position: absolute;
 	display: flex;
-	justify-content: space-between;
-	align-items: center;
+	justify-content: space-between; align-items: center;
 	background: #444444;
 }
 
@@ -61,7 +63,107 @@ body {
 	color: #fff;
 }
 
-/* banner_image */
+/* hamburger menu for mobile */
+#hamburger {  
+  width: 60px;
+  height: 45px;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;   
+  z-index: 99;
+  cursor: pointer;  
+  transform: scale(0.8);    
+}
+
+#hamburger span {
+   display: block;
+   position: absolute; 
+   height: 9px;
+   width: 100%;
+   background: #000000;
+   border-radius: 9px;
+   left: 0;
+   transform: rotate(0deg); 
+   transition: .25s ease-in-out;    
+}
+
+#hamburger span:nth-child(1) {
+    top: 0;
+}
+
+#hamburger span:nth-child(2),
+#hamburger span:nth-child(3) {
+    top: 18px;
+}
+
+#hamburger span:nth-child(4) {
+    top: 36px;
+}
+
+#hamburger.open span:nth-child(1),
+#hamburger.open span:nth-child(4) {
+    width: 0%;
+    top: 18px;
+    left: 50%;
+}
+
+#hamburger.open span:nth-child(2) {
+    transform: rotate(45deg);
+}
+
+#hamburger.open span:nth-child(3) {
+    transform: rotate(-45deg);
+}
+
+nav {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 50;
+    background: rgba(0,0,0,0.8);
+    user-select: none;
+    display: none;
+}
+
+nav.show {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+
+nav li {
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: #fff;
+    padding-bottom: 2rem;
+    margin-bottom: 1.2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: #bbb;
+}
+
+nav a:hover {
+    color: #fff;
+}
+.site-info {
+	background: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 2rem;
+	margin-left: 2.5%;
+}
+  
+/* banner_image desktop */
 .banner_image{
 	background: url('images/background.jpeg');
 	background-position: 0px 60px;
@@ -89,6 +191,69 @@ body {
 	flex-direction: row-reverse;
 }
 
+
+#services {
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
+
+#services article {
+  display: flex;
+  flex-direction: row;
+}
+
+
+#services article div {
+	flex-basis: 50%;
+	flex-grow: 1;
+	background-size: cover;
+	background-position: top;
+	padding: 3rem;
+	color: #fff;    
+}
+
+article h2 {
+	margin-bottom: 3rem;
+}
+
+#services article:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.img-home-articles {
+	background-image: url(https://images.unsplash.com/photo-1536743939714-23ec5ac2dbae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80);
+}
+
+.img-home-game {
+	background-image: url(https://images.chesscomfiles.com/uploads/v1/article/22594.7a2c2908.668x375o.77c7f8236274@2x.jpeg);
+}
+	
+.button {
+	display: inline-block;
+	text-transform: uppercase;
+	font-weight: 800;
+	letter-spacing: 0.05rem;
+	background: #fff;
+	color: #000;
+	padding: 0.8rem 3rem;
+	border-radius: 3rem;
+	box-shadow: 0 2px 15px 1px rgba(0,0,0,.5);
+	text-align: center;
+	font-size: 0.9rem;
+	transition: box-shadow 0.3s;
+	cursor: pointer;
+	border: 0;
+}
+
+.button:hover {
+	box-shadow: 0 3px 18px 2px rgba(0,0,0,.7);
+}
+
+article .button {
+	margin-top: 3rem;
+}
+
+/* Signup form */
 #signup h1 {
 	font-size: 3rem;
 	text-align: center;
@@ -149,76 +314,10 @@ form span, form a {
  	background-image: linear-gradient(to top, #ea9e0f, #a95601);
 }
 
-#services {
-	margin-top: 5%;
-	margin-bottom: 5%;
-}
 
-#services article {
-  display: flex;
-  flex-direction: row;
-}
 
-#services article:nth-child(even) {
-  flex-direction: row-reverse;
-}
-
-.img-home-articles {
-	background-image: url(https://images.unsplash.com/photo-1536743939714-23ec5ac2dbae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80);
-}
-
-.img-home-game {
-	background-image: url(https://images.chesscomfiles.com/uploads/v1/article/22594.7a2c2908.668x375o.77c7f8236274@2x.jpeg);
-}
-
-#services article div {
-	flex-basis: 50%;
-	flex-grow: 1;
-	background-size: cover;
-	background-position: top;
-	padding: 3rem;
-	color: #fff;    
-}
-	
-.button {
-	display: inline-block;
-	text-transform: uppercase;
-	font-weight: 800;
-	letter-spacing: 0.05rem;
-	background: #fff;
-	color: #000;
-	padding: 0.8rem 3rem;
-	border-radius: 3rem;
-	box-shadow: 0 2px 15px 1px rgba(0,0,0,.5);
-	text-align: center;
-	font-size: 0.9rem;
-	transition: box-shadow 0.3s;
-	cursor: pointer;
-	border: 0;
-}
-
-.button:hover {
-	box-shadow: 0 3px 18px 2px rgba(0,0,0,.7);
-}
-
-article .button {
-	margin-top: 3rem;
-}
-
-h2 {
-	text-align: left;
-	font-size: 1.5rem;
-	font-weight: 800;
-	letter-spacing: 1px;
-	text-transform: uppercase;
-	margin: 0;
-	color: #000000;
-}
-
-article h2 {
-	margin-bottom: 3rem;
-}
-@media (min-width: 681px) {
+/* changes banner-image and logo between desktop and mobile */
+@media (min-width: 781px) {
 	.big-screen {
 		display: block;
 	}
@@ -231,15 +330,34 @@ article h2 {
 		display: none;
 	}
 }
-@media (max-width: 680px) {
+@media (max-width: 780px) {
+
+    /* Changes to mobile banner-image */
 	.big-screen {
 		display: none;
 	}
 
-
-
 	.small-screen {
 		display: block;
+	}
+
+	.banner_image{
+		background: url(images/mobile-bg.jpg);
+	}
+
+	.logo-small {
+		width: 70%;
+		position: absolute;
+		font-size: 4rem;
+		padding-left: 10px; 
+		color: #000000;
+		display: block;
+		top: 0.7rem;
+		
+	}
+
+	.site-info h1 {
+		font-size: 1.5rem;
 	}
 
 	.site-info {
@@ -248,28 +366,7 @@ article h2 {
 		justify-content: left;
 	}
 
-	.site-info h1 {
-		font-size: 1.5rem;
-	}
-	.logo-small {
-		width: 70%;
-		position: absolute;
-		font-size: 3rem;
-		padding-left: 5px; 
-		color: #000000;
-		display: block;
-		top: 1rem;
-		
-	}
-
-	#services {
-		margin: 0;
-	}
-
-	.banner_image{
-		background: url(https://images.chesscomfiles.com/uploads/v1/article/25126.7ba343a5.1200x674o.34772f7f578c.jpeg);
-	}
-
+    /* Removing imgs next to services text in mobile */
 	.img-home-articles {
 		background-image: url();
 	}
@@ -278,103 +375,19 @@ article h2 {
 		background-image: url();
 	}
 
-	#services article {
-		flex-direction: column !important;
+
+    /* adjusting services layout for mobile */
+
+	#services {
+		margin: 0;
 	}
 
 	#services article div:first-child {
 		height: 400px;
 	}    
+
+	#services article {
+		flex-direction: column !important;
+	}
 }
 
-#hamburger {  
-  width: 60px;
-  height: 45px;
-  position: absolute;
-  top: 1rem;
-  right: 1rem;   
-  z-index: 99;
-  cursor: pointer;  
-  transform: scale(0.8);    
-}
-
-#hamburger span {
-   display: block;
-   position: absolute; 
-   height: 9px;
-   width: 100%;
-   background: #000000;
-   border-radius: 9px;
-   left: 0;
-   transform: rotate(0deg); 
-   transition: .25s ease-in-out;    
-}
-
-#hamburger span:nth-child(1) {
-    top: 0;
-}
-
-#hamburger span:nth-child(2),
-#hamburger span:nth-child(3) {
-    top: 18px;
-}
-
-#hamburger span:nth-child(4) {
-    top: 36px;
-}
-
-#hamburger.open span:nth-child(1),
-#hamburger.open span:nth-child(4) {
-    width: 0%;
-    top: 18px;
-    left: 50%;
-}
-
-#hamburger.open span:nth-child(2) {
-    transform: rotate(45deg);
-}
-
-#hamburger.open span:nth-child(3) {
-    transform: rotate(-45deg);
-}
-
-nav {
-    position: absolute;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    z-index: 50;
-    background: rgba(0,0,0,0.9);
-    user-select: none;
-    display: none;
-}
-
-nav.show {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
-
-nav ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    text-align: center;
-}
-
-nav li {
-    font-weight: 700;
-    font-size: 1.6rem;
-    color: #fff;
-    margin-bottom: 1.2rem;
-}
-
-nav a {
-    text-decoration: none;
-    color: #bbb;
-}
-
-nav a:hover {
-    color: #fff;
-}
