@@ -163,8 +163,8 @@ nav a:hover {
 	margin-left: 2.5%;
 }
   
-/* banner_image desktop */
-.banner_image{
+/* banner-image desktop */
+.banner-image{
 	background: url('images/background.jpeg');
 	background-position: 0px 60px;
 	background-size: cover;
@@ -175,23 +175,8 @@ nav a:hover {
 	align-items: center;
 }
 
-/* footer */
-.footer {
-	width: 100vw;
-	text-align: center;
-	background: #444444;
-	padding: 20px 0;
-}
-.footer a {
-	color: #000000;
-}
-.article-w-image {
-	margin-bottom: 5%;
-	display: flex;
-	flex-direction: row-reverse;
-}
 
-
+/* services section */
 #services {
 	margin-top: 5%;
 	margin-bottom: 5%;
@@ -252,6 +237,7 @@ article h2 {
 article .button {
 	margin-top: 3rem;
 }
+
 
 /* Signup form */
 #signup h1 {
@@ -315,9 +301,20 @@ form span, form a {
 }
 
 
+/* footer */
+.footer {
+	width: 100vw;
+	text-align: center;
+	background: #444444;
+	padding: 20px 0;
+}
+.footer a {
+	color: #000000;
+}
+
 
 /* changes banner-image and logo between desktop and mobile */
-@media (min-width: 781px) {
+@media (min-width: 787px) {
 	.big-screen {
 		display: block;
 	}
@@ -330,7 +327,7 @@ form span, form a {
 		display: none;
 	}
 }
-@media (max-width: 780px) {
+@media (max-width: 786px) {
 
     /* Changes to mobile banner-image */
 	.big-screen {
@@ -341,7 +338,7 @@ form span, form a {
 		display: block;
 	}
 
-	.banner_image{
+	.banner-image{
 		background: url(images/mobile-bg.jpg);
 	}
 
