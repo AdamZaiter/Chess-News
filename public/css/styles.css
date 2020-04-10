@@ -83,7 +83,7 @@ body {
 
 /* banner-image desktop */
 .banner-image{
-	background: url('images/background.jpeg');
+	background: url('../images/background.jpeg');
 	background-position: 0px 60px;
 	background-size: cover;
 	width: 100vw;
@@ -352,7 +352,7 @@ form span, form a {
 	}
 
 	.banner-image{
-		background: url(images/mobile-bg.jpg);
+		background: url(../images/mobile-bg.jpg);
 	}
 
 	.logo-small {
