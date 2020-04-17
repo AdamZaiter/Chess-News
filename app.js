@@ -64,7 +64,7 @@ app
   .get((req, res) => {
     var isLogged = req.isAuthenticated();
     if (req.isAuthenticated()) {
-      res.render("home", { isLogged: isLogged });
+        res.render("home", { isLogged: isLogged, username: req.user.username });
     } else {
       res.render("login", { isLogged: isLogged });
     }
@@ -72,19 +72,25 @@ app
   .post((req, res) => {
     const user = new User({
       username: req.body.username,
-      email: req.body.email,
       password: req.body.password,
     });
 
-    req.login(user, (err) => {
-      if (err) {
-        console.log(err);
-      } else {
-        passport.authenticate("local")(req, res, () => {
-          res.redirect("/");
+      User.findOne({username: req.body.username}, function (err, user) {
+        if (user) {
+            req.login(user, (err) => {
+              if (err) {
+                console.log(err);
+              } else {
+                passport.authenticate("local")(req, res, () => {
+                  res.redirect("/");
+                });
+              }
         });
-      }
-    });
+        } else {
+            res.redirect("/login");
+
+    }
+  });
   });
 
 app.get("/logout", (req, res) => {
@@ -95,8 +101,12 @@ app.get("/logout", (req, res) => {
 app
   .route("/register")
   .get((req, res) => {
-    let isLogged = req.isAuthenticated();
-    res.render("register", { isLogged: isLogged });
+  if (req.isAuthenticated()) {
+      res.redirect("/"); 
+  } else {
+      res.render("register", {isLogged: false})
+
+  }
   })
 
   .post((req, res) => {
@@ -115,5 +125,10 @@ app
       }
     );
   });
+
+app.get("/articles", (req, res) =>{
+    let isLogged = req.isAuthenticated();
+    res.render("articles", {isLogged: isLogged, username: req.user.username});
+});
 
 app.listen(5000, () => console.log("Server started on port 5000."));

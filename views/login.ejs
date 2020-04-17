@@ -1,17 +1,17 @@
 <%- include("partials/header") %>
+<link rel="stylesheet" type="text/css" href="css/forms.css"/>
+<div class="sign-page">
 
-<div style="padding:100px;">
-<form action="/login" method="POST">
-            <div>
-              <label> Username</label>
-              <input type="text" name="username">
-            </div>
-            <div>
-              <label for="password">Password</label>
-              <input type="password" name="password">
-            </div>
-            <button type="submit">Login</button>
-          </form>
+    <form class="form" method="post" action="/login">
+        <div class="form__group">
+            <input name="username" type="text" placeholder="Username" class="form__input" />
+        </div>
+        
+        <div class="form__group">
+            <input name="password" type="password" placeholder="Password" class="form__input" />
+        </div>
+        
+        <button class="btn-sign" type="submit">Login</button>
+    </form>
 </div>
-
 <%- include("partials/footer") %>
