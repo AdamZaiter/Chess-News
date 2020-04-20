@@ -35,10 +35,17 @@ const userSchema = new mongoose.Schema({
   password: String,
 });
 
+const articleSchema = {
+      title: String,
+      content: String,
+      image_url: String
+};
+
 userSchema.plugin(passportLocalMongoose);
 userSchema.plugin(findOrCreate);
 
 const User = new mongoose.model("User", userSchema);
+const Article = mongoose.model("Article", articleSchema);
 
 passport.use(User.createStrategy());
 passport.serializeUser(function (user, done) {
@@ -49,6 +56,27 @@ passport.deserializeUser(function (id, done) {
     done(err, user);
   });
 });
+
+// const article1 = new Article({
+//     title: "PHASELLUS ACCUMSAN",
+//     content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+//     image_url: "https://www.aoe.com/fileadmin/AOE.com/images/main_navigation/blog/Stock_Photos/miscellaneous/Fotolia_94900081_Chess_Pieces_930_590_70.jpg"
+// });
+// article1.save();
+
+// const article2 = new Article({
+//     title: "INTEGER BLANDIT",
+//     content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+//     image_url: "https://slatestarcodex.com/blog_images/chessgame2.gif"
+// });
+// article2.save();
+
+// const article3 = new Article({
+//     title: "AENEAN EROS ENIM",
+//     content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+//     image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ7mxsrtiaitOZ8ZCiCHfs1dXvHaoWdY8K6mYpS8AfC9-u4CO6A&usqp=CAU"
+// });
+// article3.save();
 
 app.route("/").get((req, res) => {
   if (req.isAuthenticated()) {
@@ -128,7 +156,28 @@ app
 
 app.get("/articles", (req, res) =>{
     let isLogged = req.isAuthenticated();
-    res.render("articles", {isLogged: isLogged, username: req.user.username});
+    Article.find({}, (err, foundArticles) => {
+        if (foundArticles.length > 0) {
+           articles = foundArticles; 
+        }
+        if (isLogged) {
+            res.render("articles", {isLogged: isLogged, username: req.user.username, articles: articles});
+        } else {
+            res.render("articles", {isLogged: false, articles: articles});
+            }
+    });
+});
+
+app.get('/articles/:articleId', function(req, res) {
+   Article.findOne({_id: req.params.articleId}, (err, article) => {
+       let isLogged = req.isAuthenticated();
+       if (isLogged) {
+           res.render('article', {isLogged: isLogged, username: req.user.username, title: article.title, text: article.content, image: article.image_url})
+       } else {
+           res.render('article', {isLogged: false, title: article.title, text: article.content, image: article.image_url})
+       }
+
+  });
 });
 
 app.listen(5000, () => console.log("Server started on port 5000."));

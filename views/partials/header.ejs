@@ -10,16 +10,15 @@
 </head>
 
 <body>
-
+<div class="container">
 <!-- navbar for desktop users -->
 <div class="big-screen">
     <div class="navbar">
         <div class="logo">
-            <a href="#">Chess News</a>
+            <a href="/">Chess News</a>
         </div>
         <div class="navbar_items">
             <ul>
-                <li><a href="/">home</a></li>
                 <li><a href="/articles">articles</a></li>
                 <li><a href="#">chess game</a></li>
                   <%if (!isLogged) { %>
@@ -45,8 +44,8 @@
     
   <nav>
     <ul>
-      <li><a href=".">Home</a></li>
-      <li><a href="#">Articles</a></li>
+      <li><a href="/">Home</a></li>
+      <li><a href="/articles">Articles</a></li>
       <li><a href="#">Chess Game</a></li>
       <%if (!isLogged) { %>
           <li><a href="/register">Sign Up</a></li>
@@ -57,4 +56,4 @@
         <% } %>
     </ul>
   </nav>  
-
+<a class="logo-small" href="/">Chess news</a>

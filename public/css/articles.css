@@ -1,66 +1,29 @@
-/* navigation bar desktop */
-.navbar {
-	width: 100vw;
-	height: 60px;
-	position: absolute;
-	display: flex;
-	justify-content: space-between; align-items: center;
-	background: #444444;
-}
-
-
-.navbar_items ul{
-	display: flex;
-	padding-right: 2rem;
-}
-
-.navbar_items ul li{
-	margin: 0 10px;
-}
-
-.navbar_items ul li a{
-	text-transform: uppercase;
-	color: #fff;
-}
-
 
 body
 {
-	background-color: beige;
 	display: flex;
-	background-position:top center;
-	margin:0;
-	padding:0;
-	font-family:Arial, Helvetica, sans-serif;
-	color:#333333;
+    height: 100vh;
 }
-
-#topbar
-{
-	height:10px;
-	width:974px;
-	background-color:#373b3d;
-	border-bottom:#444647 1px solid;
-	font-size:0;
-}
-
 
 #wrapper
 {
+    min-height: 80vh;
 	background-color:#beige;
 	max-width:50vw;
-	margin-top: 10%;
+    margin-top: 15%;
 	margin-left: 5%;
-	
-	
-
 }
+
 #content {
 	max-width: 50vw;
 }
 
 .spost {
     margin-bottom: 80px;
+}
+.spost h2 {
+    padding-top: 10px;
+    padding-bottom:10px;
 }
 
 
@@ -77,6 +40,7 @@ body
 #latest p
 {
 	overflow:hidden;
+    margin-bottom: 60px;
 }
 
 #latest img img.thumb
@@ -111,27 +75,11 @@ body
 	margin-bottom:40px;
 }
 
-#headline h2 a, #the_loop h2 a
-{
-	display:block;
-	font-family:Arial, Helvetica, sans-serif;
-	margin-top:7px;
-	padding-bottom:2px;
-	font-size:20px;
-	color:#fafafa;
-	
-}
 
-#headline h2 a:link, #headline h2 a:visited, #featured h2 a:link, #featured h2 a:visited, #popular h2 a:link, #popular h2 a:visited, #latest h2 a:link, #latest h2 a:visited, #the_loop h2 a:link, #the_loop h2 a:visited
+#latest h2 a:link, #latest h2 a:visited
 {
 	color:#333333;
 	text-decoration:none;
-}
-
-#headline h2 a:hover, #headline h2 a:active, #featured h2 a:hover, #featured h2 a:active, #popular h2 a:hover, #popular h2 a:active, #latest h2 a:hover, #latest h2 a:active, #the_loop h2 a:hover, #the_loop h2 a:active
-{
-	color:#333333;
-	text-decoration:underline;
 }
 
 
@@ -140,15 +88,28 @@ body
 	clear:both;
 }
 
+
 @media (max-width: 620px) {
+    #wrapper {
+        margin-top: 45%;
+        margin-left: 20%;
+    }
+
+    #latest {
+        margin-top: 30%;
+    }
     #latest p {
         display: none;
     }
     .spost {
         margin-bottom: 150px;
     }
+    
 }
 
 .sidebar {
-    padding: 100px;
+    margin-top: 10%;
+    margin-left: 100px;
+    max-width: 30vw;
+    word-wrap: break-word;
 }
