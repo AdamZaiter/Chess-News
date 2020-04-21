@@ -1,5 +1,5 @@
 <%- include("partials/header") %>
-<link rel="stylesheet" type="text/css" href="css/articles.css"/>
+<link rel="stylesheet" type="text/css" href="/css/articles.css"/>
 <div id="wrapper">
   
   <!-- /nav -->
@@ -7,20 +7,48 @@
       <div id="latest">
         <h3>Articles</h3>
         <div class="spost">
-        <% articles.forEach(function(article) { %>
-    <h2><a href="#"><%= article.title %></a></h2>
-        <img src=<%= article.image_url %> alt="" width="150" height="105" border="0" />
-        <p><%= article.content.substring(0, 100) + " ..."%> <a href="/articles/<%= article._id %>">Read More</a></p>
-           <% }) %>
+        <% for (var i = 0; i < articles.length; i++) { %>
+    <h2><a href="/articles/<%= articles[i]._id %>"><%= articles[i].title %></a></h2>
+        <img src=<%= articles[i].image_url %> alt="" width="150" height="105" border="0" />
+        <p><%= articles[i].content.substring(0, 100) + " ..."%> <a href="/articles/<%= articles[i]._id %>">Read More</a></p>
+           <% } %>
         </div>
         
+            <% if (pages > 0) { %>
+                <ul class="pagination">
+                    <% if (current == 1) { %>
+                        <li class="disabled"><a>First</a></li>
+                    <% } else { %>
+                        <li><a href="/articles/page/1">First</a></li>
+                    <% } %>
+                    <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+                    <% if (i !== 1) { %>
+                        <li class="disabled"><a>...</a></li>
+                    <% } %>
+                    <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+                        <% if (i == current) { %>
+                            <li class="active"><a><%= i %></a></li>
+                        <% } else { %>
+                            <li><a href="/articles/page/<%= i %>"><%= i %></a></li>
+                        <% } %>
+                        <% if (i == Number(current) + 4 && i < pages) { %>
+                            <li class="disabled"><a>...</a></li>
+                        <% } %>
+                    <% } %>
+                    <% if (current == pages) { %>
+                        <li class="disabled"><a>Last</a></li>
+                    <% } else { %>
+                        <li><a href="/articles/page/<%= pages %>">Last</a></li>
+                    <% } %>
+                </ul>
+            <% } %>
         
       <!-- /latest -->
     </div>
     
   </div>
+  </div>
   <!-- /content -->
-</div>
 <div class="sidebar">
     <h3></h3>
 </div>

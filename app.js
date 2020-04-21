@@ -123,7 +123,7 @@ app
 
 app.get("/logout", (req, res) => {
   req.logout();
-  res.redirect("/");
+  res.redirect("/login");
 });
 
 app
@@ -154,18 +154,8 @@ app
     );
   });
 
-app.get("/articles", (req, res) =>{
-    let isLogged = req.isAuthenticated();
-    Article.find({}, (err, foundArticles) => {
-        if (foundArticles.length > 0) {
-           articles = foundArticles; 
-        }
-        if (isLogged) {
-            res.render("articles", {isLogged: isLogged, username: req.user.username, articles: articles});
-        } else {
-            res.render("articles", {isLogged: false, articles: articles});
-            }
-    });
+app.get('/articles', (req, res) => {
+    res.redirect('/articles/page/1')  
 });
 
 app.get('/articles/:articleId', function(req, res) {
@@ -179,5 +169,26 @@ app.get('/articles/:articleId', function(req, res) {
 
   });
 });
+
+app.get('/articles/page/:page', function(req, res, next) {
+    var perPage = 5
+    var page = req.params.page || 1
+
+    Article
+        .find({})
+        .skip((perPage * page) - perPage)
+        .limit(perPage)
+        .exec(function(err, articles) {
+            Article.count().exec(function(err, count) {
+                if (err) return next(err)
+                res.render('articles', {
+                    isLogged: false,
+                    articles: articles,
+                    current: page,
+                    pages: Math.ceil(count / perPage)
+                })
+            })
+        })
+})
 
 app.listen(5000, () => console.log("Server started on port 5000."));
