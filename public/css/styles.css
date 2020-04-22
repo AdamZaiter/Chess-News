@@ -243,7 +243,7 @@ article h2 {
 	transition: box-shadow 0.3s;
 	cursor: pointer;
 	border: 0;
-    width: 190px;
+    width: 210px;
 }
 
 .button:hover {
