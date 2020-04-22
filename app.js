@@ -78,13 +78,13 @@ passport.deserializeUser(function (id, done) {
 // });
 // article3.save();
 
+var username = null;
 app.route("/").get((req, res) => {
-  if (req.isAuthenticated()) {
-    let isLogged = req.isAuthenticated();
-    res.render("home", { isLogged: isLogged, username: req.user.username });
-  } else {
-    res.render("home", { isLogged: false });
+  let isLogged = req.isAuthenticated();
+  if (isLogged) {
+    username = req.user.username;
   }
+    res.render("home", { isLogged: isLogged, username: username });
 });
 
 app
@@ -162,10 +162,9 @@ app.get('/articles/:articleId', function(req, res) {
    Article.findOne({_id: req.params.articleId}, (err, article) => {
        let isLogged = req.isAuthenticated();
        if (isLogged) {
-           res.render('article', {isLogged: isLogged, username: req.user.username, title: article.title, text: article.content, image: article.image_url})
-       } else {
-           res.render('article', {isLogged: false, title: article.title, text: article.content, image: article.image_url})
+           username = req.user.username;
        }
+           res.render('article', {isLogged: isLogged, username: username, title: article.title, text: article.content, image: article.image_url})
 
   });
 });
@@ -181,8 +180,13 @@ app.get('/articles/page/:page', function(req, res, next) {
         .exec(function(err, articles) {
             Article.count().exec(function(err, count) {
                 if (err) return next(err)
+                let isLogged = req.isAuthenticated();
+                if (isLogged) {
+                    username = req.user.username;
+                }
                 res.render('articles', {
-                    isLogged: false,
+                    isLogged: isLogged,
+                    username: username,
                     articles: articles,
                     current: page,
                     pages: Math.ceil(count / perPage)
@@ -190,5 +194,12 @@ app.get('/articles/page/:page', function(req, res, next) {
             })
         })
 })
+
+app.get('/chess', (req, res) => {
+    if (req.isAuthenticated()) {
+    username = req.user.username;
+    }
+    res.render('chess', {isLogged: req.isAuthenticated(), username: username});
+});
 
 app.listen(5000, () => console.log("Server started on port 5000."));

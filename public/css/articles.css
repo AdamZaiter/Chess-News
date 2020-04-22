@@ -30,6 +30,7 @@ body
 	width:590px;
 	margin:10px;
 	padding:10px;
+    padding-top: 60px;
 	background-color: beige;
 	background-position:top;
 	background-repeat:no-repeat;
@@ -115,8 +116,11 @@ body
 
 
 @media (max-width: 620px) {
+    html{
+        font-size: 12px;
+    }
     #wrapper {
-        margin-top: 45%;
+        margin-top: 20%;
         max-width: 80%;
     }
 
@@ -124,14 +128,14 @@ body
         max-width: 100%;
     }
 
-    #latest {
-        margin-top: 30%;
+    #latest h2 {
+        font-size: 1.2rem;
     }
     #latest p {
         display: none;
     }
     #latest img {
-        margin-right: 100px;
+        margin-right: 60%;
     }
     .spost {
         margin-bottom: 150px;
@@ -146,4 +150,3 @@ body
     }
     
 }
-

@@ -1,24 +1,14 @@
-$font-family:   "Roboto";
-
-
-body {
-    background-size: 200% 100% !important;
-    animation: move 10s ease infinite;
-    transform: translate3d(0, 0, 0);
-    background: linear-gradient(45deg, #49D49D 10%, #A2C7E5 90%);
-    height: 100vh;
-}
-
 .sign-page {
-    width: 90%;
     max-width: 540px;
-    margin-left: 24%;
-    margin-top: 15%;
+    margin: auto;
 }
-
-
-
+.container {
+    min-height: 0;
+}
 .form {
+    margin-top: 60px;
+    position: relative;
+    padding-top: 30vh;
     border-radius: 6px;
     overflow: hidden;
     opacity: 0;
@@ -50,8 +40,10 @@ body {
     transition: 0.3s;
     cursor: pointer;
 }
+
 .footer{
-    position:absolute;
+    bottom:0;
+    position: absolute;
 }
 
 
@@ -83,17 +75,12 @@ body {
 @media(max-width: 786px) {
     .sign-page {
         width: 50%;
-        padding-top: 35%;
     }
+
 }
 
-@media(max-height: 500px) {
+@media(max-height: 550px) {
     .footer {
-        position: relative;
-    }
-}
-@media(max-width: 786px) {
-    .sign-page {
-        margin-top: 30%;
+        display: none;
     }
 }

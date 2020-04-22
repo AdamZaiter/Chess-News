@@ -9,8 +9,10 @@
         <div class="spost">
         <% for (var i = 0; i < articles.length; i++) { %>
     <h2><a href="/articles/<%= articles[i]._id %>"><%= articles[i].title %></a></h2>
-        <img src=<%= articles[i].image_url %> alt="" width="150" height="105" border="0" />
-        <p><%= articles[i].content.substring(0, 100) + " ..."%> <a href="/articles/<%= articles[i]._id %>">Read More</a></p>
+        <a href="/articles/<%= articles[i]._id %>">
+            <img src=<%= articles[i].image_url %> alt="" width="150" height="105" border="0" />
+        </a>
+            <p><%= articles[i].content.substring(0, 100) + " ..."%> <a href="/articles/<%= articles[i]._id %>">Read More</a></p>
            <% } %>
         </div>
         

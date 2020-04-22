@@ -40,6 +40,10 @@ body {
 	background-color: beige;
 }
 
+.container {
+    min-height: 100vh;
+}
+
 /* navigation bar desktop */
 .navbar {
 	width: 100vw;
@@ -243,7 +247,7 @@ article h2 {
 	transition: box-shadow 0.3s;
 	cursor: pointer;
 	border: 0;
-    width: 210px;
+    width: 190px;
 }
 
 .button:hover {
@@ -327,7 +331,7 @@ form span, form a {
 	text-align: center;
 	background: #444444;
 	padding: 20px 0;
-    bottom: 0;
+    /* position: absolute; */
 }
 .footer a {
 	color: #000000;
@@ -366,7 +370,7 @@ form span, form a {
 		width: 60%;
 		position: absolute;
 		font-size: 2rem;
-        padding-left: 20px;
+        padding-left: 10px;
 		color: #000000;
 		top: 1.5rem;
 		
@@ -398,5 +402,10 @@ form span, form a {
     #form h1 {
         margin-top: 5%;
     }
+
+    .footer {
+        position: absolute;
+    }
+
 }
 
