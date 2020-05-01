@@ -19,29 +19,16 @@
         
             <% if (pages > 0) { %>
                 <ul class="pagination">
-                    <% if (current == 1) { %>
-                        <li class="disabled"><a>First</a></li>
+                    <% var i = Number(current)%>
+                    <% if ((i - 1) >= 1) { %>
+                      <li><a href="/articles/page/<%= i-1 %>">Prev</a></li>
                     <% } else { %>
-                        <li><a href="/articles/page/1">First</a></li>
+                        <li class="disabled"><a>Prev</a></li>
                     <% } %>
-                    <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
-                    <% if (i !== 1) { %>
-                        <li class="disabled"><a>...</a></li>
-                    <% } %>
-                    <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
-                        <% if (i == current) { %>
-                            <li class="active"><a><%= i %></a></li>
-                        <% } else { %>
-                            <li><a href="/articles/page/<%= i %>"><%= i %></a></li>
-                        <% } %>
-                        <% if (i == Number(current) + 4 && i < pages) { %>
-                            <li class="disabled"><a>...</a></li>
-                        <% } %>
-                    <% } %>
-                    <% if (current == pages) { %>
-                        <li class="disabled"><a>Last</a></li>
+                    <% if ((i + 1) <= pages) { %>
+                      <li><a href="/articles/page/<%= i+1 %>">Next</a></li>
                     <% } else { %>
-                        <li><a href="/articles/page/<%= pages %>">Last</a></li>
+                        <li class="disabled"><a>Next</a></li>
                     <% } %>
                 </ul>
             <% } %>
