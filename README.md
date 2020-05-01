@@ -1,2 +1,2 @@
 # Chess news
-ICA project
+ICA project for a Prague College class
