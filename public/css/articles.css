@@ -93,12 +93,12 @@ body
 }
 
 .sidebar {
-    margin-top: 50vh;
+    margin-top: 30vh;
     margin-left: 100px;
     max-height: 900px;
     width: 45vw;
     word-wrap: break-word;
-    background-color: #987654;
+    background-color: #c3c3c3;
 }
 
 .sidebar h3 {

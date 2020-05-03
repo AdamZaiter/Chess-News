@@ -1,5 +1,11 @@
 <%- include('./partials/header'); -%>
-<h1 style="padding-top: 100px; margin-left: 20px;"><%= title %></h1>
-<img style="padding-top: 20px; margin-left: 20px; margin-bottom: 20px; max-width: 90%;" src=<%= image %> />
-<p style="margin-bottom: 240px; margin-left: 20px; margin-right: 20px;"><%=  text %></p>
+<link rel="stylesheet" type="text/css" href="/css/article.css"/>
+<div id="article">
+  <h1><%= title %></h1>
+  <h4>Author: <%= author %></h5>
+  <h5>Date: <%= date %></h5>
+  <img src=<%= image %> />
+  <p><%= text %></p>
+  <h2><a href="<%= articleId %>/comments">View comments</a></h2>
+</div>
 <%- include('./partials/footer'); -%>
