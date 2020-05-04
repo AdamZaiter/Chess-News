@@ -23,7 +23,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect("mongodb://localhost:27017/chessDB", {
+mongoose.connect("mongodb+srv://adam:" + process.env.PASSWORD + "@chessdb-fgiii.mongodb.net/chessDB", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -68,7 +68,7 @@ passport.deserializeUser(function (id, done) {
 });
 
 // const comment1 = new Comment({
-//   parent_article_id: '5eafede87148cdfdec366dd0',
+//   parent_article_id: '5eb05d54fdb85901d7331c98',
 //   content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt',
 //   author: 'adam',
 //   date_posted: '03-05-2020'
@@ -77,7 +77,7 @@ passport.deserializeUser(function (id, done) {
 // comment1.save();
 
 // const comment2 = new Comment({
-//   parent_article_id: '5eafede87148cdfdec366dd0',
+//   parent_article_id: '5eb05d54fdb85901d7331c98',
 //   content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt',
 //   author: 'adam',
 //   date_posted: '03-05-2020'
