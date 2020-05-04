@@ -12,6 +12,9 @@
   },
   "author": "Adam Zaiter",
   "license": "ISC",
+  "engines": {
+    "node": "12.16.1"
+  },
   "bugs": {
     "url": "https://github.com/AdamZaiter/Chess-News/issues"
   },

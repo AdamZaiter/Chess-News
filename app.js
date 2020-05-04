@@ -9,6 +9,8 @@ const findOrCreate = require("mongoose-findorcreate");
 
 const app = express();
 
+const port = process.env.PORT;
+
 app.set("view engine", "ejs");
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -253,4 +255,4 @@ app.get('/chess', (req, res) => {
   res.render('chess', {isLogged: req.isAuthenticated(), username: username});
 });
 
-app.listen(process.ENV.PORT || 5000, () => console.log("Server started on port 5000."));
+app.listen(port, () => console.log("Server started on port 5000."));
