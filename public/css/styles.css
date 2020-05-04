@@ -31,7 +31,7 @@ h2 {
 
 p{
 	margin-bottom: 15px;
-	font-size: 14px;
+	font-size: 18px;
 	line-height: 20px;
 	color: #a9a9a9;
 }
@@ -197,10 +197,6 @@ nav a:hover {
 
   
 /* services section */
-#services {
-	margin-top: 5%;
-	margin-bottom: 5%;
-}
 
 #services article {
   display: flex;
@@ -218,6 +214,7 @@ nav a:hover {
 
 article h2 {
 	margin-bottom: 3rem;
+	margin-top: 3rem;
 }
 
 #services article:nth-child(even) {
@@ -233,6 +230,7 @@ article h2 {
 }
 	
 .button {
+  margin-bottom: 3rem;
 	display: inline-block;
 	text-transform: uppercase;
 	font-weight: 800;
@@ -247,7 +245,7 @@ article h2 {
 	transition: box-shadow 0.3s;
 	cursor: pointer;
 	border: 0;
-    width: 190px;
+  width: 220px;
 }
 
 .button:hover {

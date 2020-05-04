@@ -43,8 +43,9 @@ body
 
 #latest p
 {
+  font-size: 14px;
 	overflow:hidden;
-    margin-bottom: 150px;
+  margin-bottom: 150px;
 }
 
 #latest img img.thumb
@@ -94,7 +95,7 @@ body
 
 .sidebar {
     margin-top: 30vh;
-    margin-left: 100px;
+    margin-left: 200px;
     max-height: 900px;
     width: 45vw;
     word-wrap: break-word;
