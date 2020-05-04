@@ -2,7 +2,9 @@ h2 {
   text-transform: none;
 }
 
+
 #comments {
+  min-height: 100vh;
   padding-left: 50px;
   margin-top: 20vh;
 }

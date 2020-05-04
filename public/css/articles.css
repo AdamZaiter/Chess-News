@@ -95,9 +95,10 @@ body
 
 .sidebar {
     margin-top: 30vh;
-    margin-left: 200px;
+    margin-left: 15vw; 
+    margin-right: 5vw;
     max-height: 900px;
-    width: 45vw;
+    width: 30vw;
     word-wrap: break-word;
     background-color: #c3c3c3;
     border-radius: 25px;
@@ -116,6 +117,7 @@ body
 
 .sidebar p {
   padding: 10px 10px 10px 10px;
+  font-size: 14px;
   color: black;
 }
 
@@ -158,7 +160,29 @@ body
     color: blue;
 }
 
-@media (max-width: 1025px) {
+@media (max-width: 1300px) {
+  #latest {
+    width: 400px;
+  }
+
+  .sidebar {
+    margin-left: 25vw;
+  }
+}
+
+@media (max-width: 1200px) {
+
+  .sidebar p {
+    font-size: 11px;
+  }
+
+  .sidebar {
+    margin-left: 15vw;
+  }
+}
+
+
+@media (max-width: 1015px) {
   .switch {
     display: none;
   }
