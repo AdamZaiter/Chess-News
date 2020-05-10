@@ -4,9 +4,16 @@
   <h1>Comments</h1>
   <% for (var i = 0; i < comments.length; i++) { %>
     <h2><%= comments[i].author %></h2>
-    <p><%= comments[i].date_posted %></p>
+    <h5><%= comments[i].date_posted %></h5>
     <p><%= comments[i].content %></p>
   <% } %>
+  <form action="/articles/<%= articleId %>/comments" method="POST">
+      <div class="form">
+        <h3>Leave a comment</h3>
+        <textarea type="text" class="comment-field" cols="40" rows="5" name="comment" placeholder="Your comment"></textarea>
+      </div>
+      <button type="submit" class="button">Submit</button>
+    </form>
   <h2><a href="/articles/<%= articleId %>">Back to article</a></h2>
 </div>
 <%- include('./partials/footer'); -%>

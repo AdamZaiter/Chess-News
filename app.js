@@ -231,6 +231,28 @@ app.get("/articles/:articleId/comments", function (req, res) {
   });
 });
 
+app.post("/articles/:articleId/comments", function (req, res) {
+    let isLogged = req.isAuthenticated();
+    if (isLogged) {
+      var username = req.user.username;
+    } else {
+        res.redirect('/login');
+    }
+  let date = new Date();
+  let day = date.getDate();
+  let month = date.getMonth();
+  let year = date.getFullYear();
+  let dateString = day + '-' + month + '-' + year;
+  const commentArticle = new Comment({
+    parent_article_id: req.params.articleId,
+    content: req.body.comment,
+    author: username,
+    date_posted: dateString
+  });
+  commentArticle.save();
+  res.redirect(req.get('referer'));
+})
+
 app.get("/articles/page/:page", function (req, res, next) {
   var perPage = 5;
   var page = req.params.page || 1;

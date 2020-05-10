@@ -14,11 +14,42 @@ h2 {
 
 #comments h2 {
   font-size: 1.4rem;
-  padding: 50px 0 50px;
+  padding: 50px 0 10px;
   width: 250px;
 
 }
 
+#comments h5 {
+  color: #a9a9a9;
+  margin-bottom: 40px;
+  font-size: 0.7rem;
+}
+
+#comments p {
+  color: black;
+}
+
 #comments a, #comments a:visited, #comments a:hover, #comments a:active {
   color: blue;
+}
+
+.form {
+  margin-top: 20vh;
+  color: #000000;
+  overflow: hidden;
+}
+
+.form h3 {
+  font-size: 1.5rem;
+  padding: 20px 0 25px 0;
+}
+
+.button {
+  margin-top: 30px;
+  width: 150px;
+}
+
+.comment-field {
+  padding: 10px 10px 10px 10px;
+  width: 50vw;
 }
