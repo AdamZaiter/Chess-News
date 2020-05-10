@@ -1,59 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	<title>Chess news</title>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<link rel="stylesheet" href="/css/styles.css">
-	<script src="/scripts/script.js"></script>	
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Chess news</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/scripts/script.js"></script>	
+  </head>
 
-<body>
-<!-- navbar for desktop users -->
-<div class="container">
-<div class="big-screen">
-    <div class="navbar">
-        <div class="logo">
+  <body>
+    <!-- navbar for desktop users -->
+    <div class="container">
+      <div class="big-screen">
+        <div class="navbar">
+          <div class="logo">
             <a href="/">Chess News</a>
-        </div>
-        <div class="navbar_items">
+          </div>
+          <div class="navbar_items">
             <ul>
-                <li><a href="/articles">articles</a></li>
-                <li><a href="/chess">chess game</a></li>
-                  <%if (!isLogged) { %>
-                      <li><a href="/register">Sign Up</a></li>
-                      <li><a href="/login">Login</a></li>
-                  <% } else { %>
-                      <li><a href="#"><%= username %></a></li>
-                      <li><a href="/logout">Logout</a></li>
-                    <% } %>
-                </li>
+              <li><a href="/articles">articles</a></li>
+              <li><a href="/chess">chess game</a></li>
+              <%if (!isLogged) { %>
+                <li><a href="/register">Sign Up</a></li>
+                <li><a href="/login">Login</a></li>
+              <% } else { %>
+                <li><a href="#"><%= username %></a></li>
+                <li><a href="/logout">Logout</a></li>
+              <% } %>
+              </li>
             </ul>
+          </div>
+        </div>
       </div>
-</div>
-</div>
 
-<!-- hamburger menu for mobile users instead of a navbar -->
-<div class="small-screen" id="hamburger">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>  
-</div>
-    
-  <nav>
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/articles">Articles</a></li>
-      <li><a href="/chess">Chess Game</a></li>
-      <%if (!isLogged) { %>
-          <li><a href="/register">Sign Up</a></li>
-          <li><a href="/login">Login</a></li>
-      <% } else { %>
-          <li><a href="#"><%= username %></a></li>
-          <li><a href="/logout">Logout</a></li>
-        <% } %>
-    </ul>
-  </nav>  
-<a class="logo-small" href="/">Chess news</a>
+      <!-- hamburger menu for mobile users instead of a navbar -->
+      <div class="small-screen" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>  
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/articles">Articles</a></li>
+          <li><a href="/chess">Chess Game</a></li>
+          <%if (!isLogged) { %>
+            <li><a href="/register">Sign Up</a></li>
+            <li><a href="/login">Login</a></li>
+          <% } else { %>
+            <li><a href="#"><%= username %></a></li>
+            <li><a href="/logout">Logout</a></li>
+          <% } %>
+        </ul>
+      </nav>  
+      <a class="logo-small" href="/">Chess news</a>

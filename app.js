@@ -8,7 +8,6 @@ const passportLocalMongoose = require("passport-local-mongoose");
 const findOrCreate = require("mongoose-findorcreate");
 
 const app = express();
-
 const port = process.env.PORT;
 
 app.set("view engine", "ejs");
@@ -25,10 +24,15 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect("mongodb+srv://adam:" + process.env.PASSWORD + "@chessdb-fgiii.mongodb.net/chessDB", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(
+  "mongodb+srv://adam:" +
+    process.env.PASSWORD +
+    "@chessdb-fgiii.mongodb.net/chessDB",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
+);
 mongoose.set("useCreateIndex", true);
 
 const userSchema = new mongoose.Schema({
@@ -42,14 +46,14 @@ const articleSchema = {
   date_posted: String,
   author: String,
   content: String,
-  image_url: String
+  image_url: String,
 };
 
 const commentSchema = {
   parent_article_id: String,
   content: String,
   author: String,
-  date_posted: String
+  date_posted: String,
 };
 
 userSchema.plugin(passportLocalMongoose);
@@ -86,7 +90,6 @@ passport.deserializeUser(function (id, done) {
 
 // });
 // comment2.save();
-
 
 // const article1 = new Article({
 //     title: "PHASELLUS ACCUMSAN",
@@ -135,12 +138,7 @@ app
     }
   })
   .post((req, res) => {
-    const user = new User({
-      username: req.body.username,
-      password: req.body.password,
-    });
-
-    User.findOne({username: req.body.username}, function (err, user) {
+    User.findOne({ username: req.body.username }, function (err, user) {
       if (user) {
         req.login(user, (err) => {
           if (err) {
@@ -153,7 +151,6 @@ app
         });
       } else {
         res.redirect("/login");
-
       }
     });
   });
@@ -167,10 +164,9 @@ app
   .route("/register")
   .get((req, res) => {
     if (req.isAuthenticated()) {
-      res.redirect("/"); 
+      res.redirect("/");
     } else {
-      res.render("register", {isLogged: false})
-
+      res.render("register", { isLogged: false });
     }
   })
 
@@ -178,7 +174,7 @@ app
     User.register(
       { username: req.body.username, email: req.body.email },
       req.body.password,
-      (err, user) => {
+      (err) => {
         if (err) {
           console.log(err);
           res.redirect("/register");
@@ -191,68 +187,80 @@ app
     );
   });
 
-app.get('/articles', (req, res) => {
-  res.redirect('/articles/page/1')  
+app.get("/articles", (req, res) => {
+  res.redirect("/articles/page/1");
 });
 
-app.get('/articles/:articleId', function(req, res) {
-  Article.findOne({_id: req.params.articleId}, (err, article) => {
+app.get("/articles/:articleId", function (req, res) {
+  Article.findOne({ _id: req.params.articleId }, (err, article) => {
     let isLogged = req.isAuthenticated();
     if (isLogged) {
       username = req.user.username;
     }
-    res.render('article', {isLogged: isLogged, username: username, articleId : req.params.articleId,
-      title: article.title, text: article.content, image: article.image_url, date: article.date_posted, author: article.author})
-
+    res.render("article", {
+      isLogged: isLogged,
+      username: username,
+      articleId: req.params.articleId,
+      title: article.title,
+      text: article.content,
+      image: article.image_url,
+      date: article.date_posted,
+      author: article.author,
+    });
   });
 });
 
-app.get('/articles/:articleId/comments', function(req, res) {
-  Article.findOne({_id: req.params.articleId}, (err, article) => {
+app.get("/articles/:articleId/comments", function (req, res) {
+  Article.findOne({ _id: req.params.articleId }, (err, article) => {
     let isLogged = req.isAuthenticated();
     if (isLogged) {
       username = req.user.username;
     }
-    Comment.find({parent_article_id: req.params.articleId}, (err, comments) => {
-      res.render('comments', {isLogged: isLogged, username: username, title: article.title, articleId: req.params.articleId,
-        comments: comments})
-
-    })
-
+    Comment.find(
+      { parent_article_id: req.params.articleId },
+      (err, comments) => {
+        res.render("comments", {
+          isLogged: isLogged,
+          username: username,
+          title: article.title,
+          articleId: req.params.articleId,
+          comments: comments,
+        });
+      }
+    );
   });
 });
 
-app.get('/articles/page/:page', function(req, res, next) {
-  var perPage = 5
-  var page = req.params.page || 1
+app.get("/articles/page/:page", function (req, res, next) {
+  var perPage = 5;
+  var page = req.params.page || 1;
 
-  Article
-    .find({})
-    .skip((perPage * page) - perPage)
+  Article.find({})
+    .skip(perPage * page - perPage)
     .limit(perPage)
-    .exec(function(err, articles) {
-      Article.count().exec(function(err, count) {
-        if (err) return next(err)
+    .exec(function (err, articles) {
+      Article.count().exec(function (err, count) {
+        if (err) return next(err);
         let isLogged = req.isAuthenticated();
         if (isLogged) {
           username = req.user.username;
         }
-        res.render('articles', {
+        res.render("articles", {
           isLogged: isLogged,
           username: username,
           articles: articles,
           current: page,
-          pages: Math.ceil(count / perPage)
-        })
-      })
-    })
-})
+          pages: Math.ceil(count / perPage),
+        });
+      });
+    });
+});
 
-app.get('/chess', (req, res) => {
+app.get("/chess", (req, res) => {
   if (req.isAuthenticated()) {
     username = req.user.username;
   }
-  res.render('chess', {isLogged: req.isAuthenticated(), username: username});
+  res.render("chess", { isLogged: req.isAuthenticated(), username: username });
 });
 
 app.listen(port, () => console.log("Server started on port 5000."));

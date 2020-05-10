@@ -1,107 +1,96 @@
-body
-{
-	display: flex;
-    height: 100vh;
+body {
+  display: flex;
+  height: 100vh;
 }
 
 #sections {
   display: flex;
 }
 
-#wrapper
-{
-    min-height: 80vh;
-	background-color:#beige;
-	max-width:50vw;
-    margin-top: 10%;
-	margin-left: 5%;
+#wrapper {
+  min-height: 80vh;
+  background-color:#beige;
+  max-width:50vw;
+  margin-top: 10%;
+  margin-left: 5%;
 }
 
 #content {
-	max-width: 50vw;
+  max-width: 50vw;
 }
 
-.spost {
-    margin-bottom: 80px;
-}
-.spost h2 {
-    padding-top: 10px;
-    padding-bottom:10px;
+.post {
+  margin-bottom: 80px;
 }
 
-
-#latest {
-	width:590px;
-	margin:10px;
-	padding:10px;
-    padding-top: 60px;
-	background-color: beige;
-	background-position:top;
-	background-repeat:no-repeat;
-	overflow:hidden;
+.post h2 {
+  padding-top: 10px;
+  padding-bottom:10px;
 }
 
-#latest p
-{
+#articles {
+  width:590px;
+  margin:10px;
+  padding:10px;
+  padding-top: 60px;
+  background-color: beige;
+  background-position:top;
+  background-repeat:no-repeat;
+  overflow:hidden;
+}
+
+#articles p {
   font-size: 14px;
-	overflow:hidden;
+  overflow:hidden;
   margin-bottom: 150px;
 }
 
-#latest img img.thumb
-{
-	float:left;
-	margin:5px 10px 10px 0;
-	padding:1px;
-	border:#c9bba0 1px solid;
+#articles img img.thumb {
+  float:left;
+  margin:5px 10px 10px 0;
+  padding:1px;
+  border:#c9bba0 1px solid;
+}
+
+#articles img{
+
+  max-width:586px;
+  float:left;
+  margin:5px 7px 50px 0;
+  padding:1px;
+  border:#c9bba0 1px solid;
+}
+
+#articles h3 {
+  display: flex;
+  font-size:32px;
+  color:#333333;
+  text-align: center;
+  text-transform:uppercase;
+  margin-top:0;
+  margin-bottom:70px;
 }
 
 
-
-
-
-#latest img
-{
-	max-width:586px;
-	float:left;
-	margin:5px 7px 50px 0;
-	padding:1px;
-	border:#c9bba0 1px solid;
-}
-
-#latest h3
-{
-    display: flex;
-	font-size:32px;
-	color:#333333;
-	text-align: center;
-	text-transform:uppercase;
-	margin-top:0;
-	margin-bottom:70px;
+#articles h2 a:link, #articles h2 a:visited {
+  color:#333333;
+  text-decoration:none;
 }
 
 
-#latest h2 a:link, #latest h2 a:visited
-{
-	color:#333333;
-	text-decoration:none;
-}
-
-
-#latest, #bottom
-{
-	clear:both;
+#articles, #bottom {
+  clear:both;
 }
 
 .sidebar {
-    margin-top: 30vh;
-    margin-left: 15vw; 
-    margin-right: 5vw;
-    max-height: 900px;
-    width: 30vw;
-    word-wrap: break-word;
-    background-color: #c3c3c3;
-    border-radius: 25px;
+  margin-top: 30vh;
+  margin-left: 15vw; 
+  margin-right: 5vw;
+  max-height: 900px;
+  width: 30vw;
+  word-wrap: break-word;
+  background-color: #c3c3c3;
+  border-radius: 25px;
 }
 
 .sidebar h3 {
@@ -123,7 +112,6 @@ body
 
 #columns {
   display:flex;
-  
 }
 
 .results {
@@ -140,28 +128,27 @@ body
   padding-left: 25px;
 }
 
-
 .pagination {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .pagination li {
-    font-size: 1.5rem;
-    padding: 10px 25px 10px 0;
+  font-size: 1.5rem;
+  padding: 10px 25px 10px 0;
 }
 
 .active .disabled {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
 }
 .pagination li a:visited{
-    text-decoration: none;
-    color: blue;
+  text-decoration: none;
+  color: blue;
 }
 
 @media (max-width: 1300px) {
-  #latest {
+  #articles {
     width: 400px;
   }
 
@@ -181,7 +168,6 @@ body
   }
 }
 
-
 @media (max-width: 1015px) {
   .switch {
     display: none;
@@ -189,36 +175,36 @@ body
 }
 
 @media (max-width: 620px) {
-    html{
-        font-size: 12px;
-    }
-    #wrapper {
-        margin-top: 20%;
-        max-width: 80%;
-    }
+  html{
+    font-size: 12px;
+  }
+  #wrapper {
+    margin-top: 20%;
+    max-width: 80%;
+  }
 
-    #content {
-        max-width: 100%;
-    }
+  #content {
+    max-width: 100%;
+  }
 
-    #latest h2 {
-        font-size: 1.2rem;
-    }
-    #latest p {
-        display: none;
-    }
-    #latest img {
-        margin-right: 60%;
-    }
-    .spost {
-        margin-bottom: 150px;
-    }
-    .pagination {
-        width: 100%;
-    }
+  #articles h2 {
+    font-size: 1.2rem;
+  }
+  #articles p {
+    display: none;
+  }
+  #articles img {
+    margin-right: 60%;
+  }
+  .post {
+    margin-bottom: 150px;
+  }
+  .pagination {
+    width: 100%;
+  }
 
-    .pagination li {
-        font-size: 1.2rem;
-        padding: 10px 30px 10px 0;
-    }
+  .pagination li {
+    font-size: 1.2rem;
+    padding: 10px 30px 10px 0;
+  }
 }

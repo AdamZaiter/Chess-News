@@ -1,68 +1,68 @@
 <%- include("partials/header") -%>
 
 <div class="banner-image">
-    <div class="site-info">
-        <h1>All things chess in one place</h1>
-</div>	
+  <div class="site-info">
+    <h1>All things chess in one place</h1>
+  </div>	
 </div>
 
-    <!-- info about the site -->
-	<section id="services">
+<!-- info about the site -->
+<section id="services">
 
-		<article>
-		  <div class ="img-home-articles"></div>
-		  <div>
-			<h2>Chess articles</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam quia, porro repellendus dolore repudiandae, accusantium corporis harum vel iste suscipit maiores provident ullam itaque libero minus nesciunt consequatur iusto numquam asperiores quod fugiat veniam blanditiis.</p>
-			<a class="button" href="/articles">Read Articles</a>  
-		  </div>
-		</article>
-		
-		<article>
-		  <div class="img-home-game" ></div>
-		  <div>
-			<h2>Chess game</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam quia, porro repellendus dolore repudiandae, accusantium corporis harum vel iste suscipit maiores provident ullam itaque libero minus nesciunt consequatur iusto numquam asperiores quod fugiat veniam blanditiis.</p>
+  <article>
+    <div class ="img-home-articles"></div>
+    <div>
+      <h2>Chess articles</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam quia, porro repellendus dolore repudiandae, accusantium corporis harum vel iste suscipit maiores provident ullam itaque libero minus nesciunt consequatur iusto numquam asperiores quod fugiat veniam blanditiis.</p>
+      <a class="button" href="/articles">Read Articles</a>  
+    </div>
+  </article>
+
+  <article>
+    <div class="img-home-game" ></div>
+    <div>
+      <h2>Chess game</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam quia, porro repellendus dolore repudiandae, accusantium corporis harum vel iste suscipit maiores provident ullam itaque libero minus nesciunt consequatur iusto numquam asperiores quod fugiat veniam blanditiis.</p>
       <a class="button" href="/chess">Play Now!</a>  
-		  </div>
-		</article>
-	
-	  </section>
+    </div>
+  </article>
 
-  <%if (!isLogged) { %>
-      <!-- sign up section -->
-      <section id="signup">
-		
-      <div id="form" class="brown">
-		  
-		<h1>Sign Up Today</h1>
-        <div>
-            <form action="/register" method="post">
+</section>
+
+<%if (!isLogged) { %>
+  <!-- sign up section -->
+  <section id="signup">
+
+    <div id="form" class="brown">
+
+      <h1>Sign Up Today</h1>
+      <div>
+        <form action="/register" method="post">
+          <div>
+            <label>Your Username</label>
+            <input name="username" type="text" required>    
+          </div>
+          <div>
+            <label>Your Email</label>
+            <input name="email" type="email" autocomplete="off" required>    
+          </div>
+          <div>
+            <label>Your Password</label>
+            <input name="password" type="password" required>    
+          </div>
+          <div>
+            <input type="checkbox" id="terms" required>
+            <span>By checking this box you confirm that you have read and agree to our <a href="#">terms and conditions</a> and <a href="#">privacy policy</a>.</span>    
+          </div>  
+          <div class="form-footer">
             <div>
-              <label>Your Username</label>
-              <input name="username" type="text" required>    
+              <input type="submit" class="button" value="Submit">
             </div>
-            <div>
-              <label>Your Email</label>
-              <input name="email" type="email" autocomplete="off" required>    
-			</div>
-			<div>
-				<label>Your Password</label>
-				<input name="password" type="password" required>    
-			  </div>
-            <div>
-              <input type="checkbox" id="terms" required>
-              <span>By checking this box you confirm that you have read and agree to our <a href="#">terms and conditions</a> and <a href="#">privacy policy</a>.</span>    
-            </div>  
-            <div class="form-footer">
-                <div>
-                    <input type="submit" class="button" value="Submit">
-                </div>
-            </div>
-          </form>
-        </div>   
-      </div>    
+          </div>
+        </form>
+      </div>   
+    </div>    
   </section>
-  <% } %>
+<% } %>
 
 <%- include("partials/footer") -%>

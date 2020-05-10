@@ -1,45 +1,45 @@
 <%- include("partials/header") %>
 <link rel="stylesheet" type="text/css" href="/css/articles.css"/>
 <div id="sections">
-<div id="wrapper">
-  
-  <!-- /nav -->
-  <div id="content">
-      <div id="latest">
+  <div id="wrapper">
+
+    <!-- /nav -->
+    <div id="content">
+      <div id="articles">
         <h3>Articles</h3>
-        <div class="spost">
-        <% for (var i = 0; i < articles.length; i++) { %>
-    <h2><a href="/articles/<%= articles[i]._id %>"><%= articles[i].title %></a></h2>
-        <a href="/articles/<%= articles[i]._id %>">
-            <img src=<%= articles[i].image_url %> alt="" width="150" height="105" border="0" />
-        </a>
+        <div class="post">
+          <% for (var i = 0; i < articles.length; i++) { %>
+            <h2><a href="/articles/<%= articles[i]._id %>"><%= articles[i].title %></a></h2>
+            <a href="/articles/<%= articles[i]._id %>">
+              <img src=<%= articles[i].image_url %> alt="" width="150" height="105" border="0" />
+            </a>
             <p><%= articles[i].content.substring(0, 100) + " ..."%> <a href="/articles/<%= articles[i]._id %>">Read More</a></p>
-           <% } %>
+          <% } %>
         </div>
-        
-            <% if (pages > 0) { %>
-                <ul class="pagination">
-                    <% var i = Number(current)%>
-                    <% if ((i - 1) >= 1) { %>
-                      <li><a href="/articles/page/<%= i-1 %>">Prev</a></li>
-                    <% } else { %>
-                        <li class="disabled"><a>Prev</a></li>
-                    <% } %>
-                    <% if ((i + 1) <= pages) { %>
-                      <li><a href="/articles/page/<%= i+1 %>">Next</a></li>
-                    <% } else { %>
-                        <li class="disabled"><a>Next</a></li>
-                    <% } %>
-                </ul>
+
+        <% if (pages > 0) { %>
+          <ul class="pagination">
+            <% var i = Number(current)%>
+            <% if ((i - 1) >= 1) { %>
+              <li><a href="/articles/page/<%= i-1 %>">Prev</a></li>
+            <% } else { %>
+              <li class="disabled"><a>Prev</a></li>
             <% } %>
-        
-      <!-- /latest -->
+            <% if ((i + 1) <= pages) { %>
+              <li><a href="/articles/page/<%= i+1 %>">Next</a></li>
+            <% } else { %>
+              <li class="disabled"><a>Next</a></li>
+            <% } %>
+          </ul>
+        <% } %>
+
+        <!-- /articles -->
+      </div>
+
     </div>
-    
-  </div>
   </div>
   <!-- /content -->
-<div class="sidebar switch">
+  <div class="sidebar switch">
     <h3>Past games</h3>
     <div id="columns">
       <div id="players">
@@ -74,6 +74,6 @@
         <p>1-0</p>
       </div>
     </div>
-</div>
+  </div>
 </div>
 <%- include("partials/footer") %>

@@ -2,12 +2,12 @@
 <link rel="stylesheet" type="text/css" href="/css/comments.css"/>
 <div id="comments">
   <h1>Comments</h1>
-      <% for (var i = 0; i < comments.length; i++) { %>
-        <h2><%= comments[i].author %></h2>
-        <p><%= comments[i].date_posted %></p>
-        <p><%= comments[i].content %></p>
-      <% } %>
-   <h2><a href="/articles/<%= articleId %>">Back to article</a></h2>
+  <% for (var i = 0; i < comments.length; i++) { %>
+    <h2><%= comments[i].author %></h2>
+    <p><%= comments[i].date_posted %></p>
+    <p><%= comments[i].content %></p>
+  <% } %>
+  <h2><a href="/articles/<%= articleId %>">Back to article</a></h2>
 </div>
 <%- include('./partials/footer'); -%>
 

@@ -1,86 +1,85 @@
 .sign-page {
-    max-width: 540px;
-    margin: auto;
-}
-.container {
-    min-height: 0;
-}
-.form {
-    margin-top: 60px;
-    position: relative;
-    padding-top: 25vh;
-    border-radius: 6px;
-    overflow: hidden;
-    opacity: 0;
-    transform: translate3d(0, 500px, 0);
-    animation: arrive 500ms ease-in-out 0.3s forwards;
+  max-width: 540px;
+  margin: auto;
 }
 
+.container {
+  min-height: 0;
+}
+
+.form {
+  margin-top: 60px;
+  position: relative;
+  padding-top: 25vh;
+  border-radius: 6px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translate3d(0, 500px, 0);
+  animation: arrive 500ms ease-in-out 0.3s forwards;
+}
 
 .form__input {
-    display: block;
-    width: 100%;
-    padding: 20px;
-    font-family: $font-family;
-    -webkit-appearance: none;
-    border: 0;
-    outline: 0;
+  display: block;
+  width: 100%;
+  padding: 20px;
+  font-family: $font-family;
+  -webkit-appearance: none;
+  border: 0;
+  outline: 0;
 }
 
 .btn-sign {
-    display: block;
-    width: 100%;
-    padding: 20px;
-    font-family: $font-family;
-    -webkit-appearance: none;
-    outline: 0;
-    border: 0;
-    color: white;
-    background: #444444;
-    transition: 0.3s;
-    cursor: pointer;
+  display: block;
+  width: 100%;
+  padding: 20px;
+  font-family: $font-family;
+  -webkit-appearance: none;
+  outline: 0;
+  border: 0;
+  color: white;
+  background: #444444;
+  transition: 0.3s;
+  cursor: pointer;
 }
 
-.footer{
-    bottom:0;
-    position: absolute;
+.footer {
+  bottom:0;
+  position: absolute;
 }
-
 
 @keyframes arrive {
-    0% {
-        opacity: 0;
-        transform: translate3d(0, 50px, 0);
-    }
-    
-    100% {
-        opacity: 1;
-        transform: translate3d(0, 0, 0);
-    }
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 50px, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }
 
 @keyframes move {
-    0% {
-        background-position: 0 0
-    }
+  0% {
+    background-position: 0 0
+  }
 
-    50% {
-        background-position: 100% 0
-    }
+  50% {
+    background-position: 100% 0
+  }
 
-    100% {
-        background-position: 0 0
-    }
+  100% {
+    background-position: 0 0
+  }
 }
 @media(max-width: 786px) {
-    .sign-page {
-        width: 50%;
-    }
-
+  .sign-page {
+    width: 50%;
+  }
 }
 
 @media(max-height: 550px) {
-    .footer {
-        display: none;
-    }
+  .footer {
+    display: none;
+  }
 }
