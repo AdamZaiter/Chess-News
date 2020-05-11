@@ -27,6 +27,7 @@ h2 {
 
 #comments p {
   color: black;
+  width: 70vw;
 }
 
 #comments a, #comments a:visited, #comments a:hover, #comments a:active {
