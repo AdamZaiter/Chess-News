@@ -33,3 +33,9 @@
 #article a, #article a:visited, #article a:hover, #article a:active {
   color: blue;
 }
+
+@media (max-width: 620px) {
+  #article {
+    padding-left: 20px;
+  }
+}

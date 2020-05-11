@@ -234,7 +234,7 @@ app.get("/articles/:articleId/comments", function (req, res) {
 app.post("/articles/:articleId/comments", function (req, res) {
     let isLogged = req.isAuthenticated();
     if (isLogged) {
-      var username = req.user.username;
+      username = req.user.username;
       let date = new Date();
       let day = date.getDate();
       let month = date.getMonth();
@@ -261,7 +261,7 @@ app.get("/articles/page/:page", function (req, res, next) {
     .skip(perPage * page - perPage)
     .limit(perPage)
     .exec(function (err, articles) {
-      Article.count().exec(function (err, count) {
+      Article.countDocuments().exec(function (err, count) {
         if (err) return next(err);
         let isLogged = req.isAuthenticated();
         if (isLogged) {
